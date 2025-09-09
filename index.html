@@ -58,6 +58,7 @@
         .main-content {
             flex-grow: 1;
             padding: 30px;
+            overflow: hidden;
         }
 
         .header {
@@ -76,6 +77,8 @@
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
         }
 
         .projects h3, .timeline h3, .stats h3 {
@@ -98,6 +101,11 @@
         .project-item a, .timeline-item a {
             text-decoration: none;
             color: #2c3e50;
+        }
+
+        /* Hover Effect for Sections */
+        .projects:hover, .timeline:hover, .stats:hover {
+            transform: scale(1.05);
         }
 
         /* Stats box */
@@ -132,6 +140,22 @@
 
         .btn:hover {
             background-color: #2ecc71;
+        }
+
+        /* Adding animations to images */
+        .motion-img {
+            max-width: 100%;
+            height: auto;
+            animation: moveRight 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes moveRight {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(20px);
+            }
         }
 
         /* Responsive Design */
@@ -183,6 +207,12 @@
             <button class="btn" onclick="alert('New Project Started!')">Start New Project</button>
         </div>
 
+        <!-- Motion Image Section -->
+        <div class="motion-section">
+            <h3>Featured Animation</h3>
+            <img class="motion-img" src="https://via.placeholder.com/400x200?text=Motion+Image" alt="Motion Animation">
+        </div>
+
         <!-- Projects Section -->
         <div class="projects">
             <h3>Active Projects</h3>
@@ -225,9 +255,8 @@
 </div>
 
 <script>
-    // You can add JavaScript functionalities here
+    // Example of how to make sections interactive or add animations
     console.log('Animator Dashboard loaded');
-    // Example: Simple alert when clicking the "Start New Project" button
     const startButton = document.querySelector('.btn');
     startButton.addEventListener('click', () => {
         alert('New Project Started!');
